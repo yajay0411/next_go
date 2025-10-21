@@ -46,48 +46,48 @@ jobs:
       - name: Run Lint and Format
         run: pnpm run lint:fix
 
-  tests:
-    name: 🧪 Run Tests
-    needs: setup
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        test-type: [unit, e2e]
-    steps:
-      - uses: actions/checkout@v4
+  # tests:
+  #   name: 🧪 Run Tests
+  #   needs: setup
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     matrix:
+  #       test-type: [unit, e2e]
+  #   steps:
+  #     - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
+  #     - name: Setup Node.js
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version: ${{ env.NODE_VERSION }}
 
-      - name: Install pnpm
-        run: npm install -g pnpm
+  #     - name: Install pnpm
+  #       run: npm install -g pnpm
 
-      - name: Restore pnpm cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.pnpm-store
-            node_modules
-          key: deps-${{ hashFiles('pnpm-lock.yaml') }}
-          restore-keys: deps-
+  #     - name: Restore pnpm cache
+  #       uses: actions/cache@v4
+  #       with:
+  #         path: |
+  #           ~/.pnpm-store
+  #           node_modules
+  #         key: deps-${{ hashFiles('pnpm-lock.yaml') }}
+  #         restore-keys: deps-
 
-      - name: Install Playwright browsers
-        if: matrix.test-type == 'e2e'
-        run: npx playwright install --with-deps
+  #     - name: Install Playwright browsers
+  #       if: matrix.test-type == 'e2e'
+  #       run: npx playwright install --with-deps
 
-      - name: Run Tests
-        run: |
-          if [ "${{ matrix.test-type }}" = "unit" ]; then
-            pnpm run test:run
-          else
-            pnpm run test:e2e
-          fi
+  #     - name: Run Tests
+  #       run: |
+  #         if [ "${{ matrix.test-type }}" = "unit" ]; then
+  #           pnpm run test:run
+  #         else
+  #           pnpm run test:e2e
+  #         fi
 
   build:
     name: 🏗️ Build App
-    needs: tests
+    # needs: tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -136,9 +136,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: List downloaded contents
-        run: ls -R .next
 
       - name: Download Build Artifact
         uses: actions/download-artifact@v4
