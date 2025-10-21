@@ -78,7 +78,9 @@ jobs:
 
       - name: Prepare Playwright (only if e2e)
         if: matrix.test-type == 'e2e'
-        run: npx playwright install --with-deps
+        run: |
+          - name: Setup Playwright
+          uses: microsoft/playwright-github-action@v1
 
       - name: Run Tests
         run: |
