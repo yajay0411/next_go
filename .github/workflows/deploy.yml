@@ -80,7 +80,7 @@ jobs:
         if: matrix.test-type == 'e2e'
         run: |
           - name: Setup Playwright
-          uses: microsoft/playwright-github-action@v1
+            uses: microsoft/playwright-github-action@v1
 
       - name: Run Tests
         run: |
