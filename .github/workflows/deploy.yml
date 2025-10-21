@@ -113,7 +113,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build Production
-        run: pnpm run build
+        run: pnpm run build:ci
 
       - name: Verify build folder
         run: ls -la .next
