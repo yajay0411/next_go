@@ -3,7 +3,7 @@
 // ==================================================================
 
 .navbar-wrapper {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgb(255 255 255 / 90%);
   box-shadow: 0 3px 12px rgb(0 0 0 / 8%);
   padding: 8px 16px;
   z-index: 99;
@@ -26,7 +26,7 @@
   justify-content: space-between;
   width: 100%;
 
-  @media (max-width: 768px) {
+  @media (width <=768px) {
     display: none;
   }
 }
@@ -35,7 +35,7 @@
 .navbar-mobile {
   display: none;
 
-  @media (max-width: 768px) {
+  @media (width <=768px) {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -184,11 +184,8 @@
 // Mobile Menu Overlay
 .navbar-mobile-menu {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(255, 255, 255, 0.95);
+  inset: 0;
+  background-color: rgb(255 255 255 / 95%);
   backdrop-filter: blur(10px);
   z-index: 9998;
   display: flex;
@@ -221,7 +218,7 @@
 }
 
 // Responsive Design
-@media (max-width: 768px) {
+@media (width <=768px) {
   .navbar-wrapper {
     padding: 12px 16px;
   }
@@ -240,7 +237,7 @@
 
 // Dark theme support (if needed)
 .navbar-wrapper.dark {
-  background-color: rgba(17, 33, 37, 0.9);
+  background-color: rgb(17 33 37 / 90%);
 
   .navbar-link {
     color: #eee9e5;
