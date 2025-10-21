@@ -14,8 +14,6 @@ jobs:
   setup:
     name: 🧩 Setup and Validate
     runs-on: ubuntu-latest
-    outputs:
-      cache-key: ${{ steps.cache-deps.outputs.cache-hit }}
     steps:
       - uses: actions/checkout@v4
 
@@ -23,19 +21,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
 
       - name: Install pnpm
         run: npm install -g pnpm
-
-      - name: Restore dependencies cache
-        id: cache-deps
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.pnpm-store
-            node_modules
-          key: deps-${{ hashFiles('pnpm-lock.yaml') }}
-          restore-keys: deps-
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -53,6 +42,8 @@ jobs:
     strategy:
       matrix:
         test-type: [unit, e2e]
+    container:
+      image: mcr.microsoft.com/playwright:v1.48.2-jammy # ✅ Use container for both tests
     steps:
       - uses: actions/checkout@v4
 
@@ -60,25 +51,17 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
 
       - name: Install pnpm
         run: npm install -g pnpm
 
-      - name: Restore dependencies cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.pnpm-store
-            node_modules
-          key: deps-${{ hashFiles('pnpm-lock.yaml') }}
-          restore-keys: deps-
-
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Setup Playwright
+      - name: Setup Playwright Browsers
         if: matrix.test-type == 'e2e'
-        run: pnpm exec playwright install
+        run: pnpm exec playwright install --with-deps
 
       - name: Run Tests
         run: |
@@ -99,18 +82,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
 
       - name: Install pnpm
         run: npm install -g pnpm
-
-      - name: Restore dependencies cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.pnpm-store
-            node_modules
-          key: deps-${{ hashFiles('pnpm-lock.yaml') }}
-          restore-keys: deps-
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
