@@ -1,0 +1,85 @@
+{
+  "name": "next_go",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "dotenvx run --env-file .env.development -- next",
+    "build": "dotenvx run --env-file .env.production -- next build",
+    "preview": "pnpm run build && next start --port 10000",
+    "lint": "pnpm lint:ts && pnpm lint:scss",
+    "lint:fix": "pnpm lint:ts:fix && pnpm lint:scss:fix",
+    "lint:ts": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "lint:ts:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
+    "lint:scss": "stylelint '**/*.{scss,css}'",
+    "lint:scss:fix": "stylelint '**/*.{scss,css}' --fix",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "type-check": "tsc --noEmit",
+    "clean:build": "rimraf .next out",
+    "clean:test": "rimraf test-results playwright-report",
+    "clean:all": "rimraf .next out test-results playwright-report node_modules pnpm-lock.yaml",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:ui": "vitest --ui",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:all": "pnpm type-check && pnpm lint && pnpm format:check && pnpm test:run && pnpm test:e2e"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{scss,css}": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "@dotenvx/dotenvx": "^1.51.0",
+    "axios": "^1.12.2",
+    "formik": "^2.4.6",
+    "framer-motion": "^12.23.24",
+    "next": "15.5.6",
+    "normalize.css": "^8.0.1",
+    "path": "^0.12.7",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "sass": "^1.93.2",
+    "yup": "^1.7.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "@playwright/test": "^1.56.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^20.19.22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/sass": "^1.45.0",
+    "@typescript-eslint/eslint-plugin": "^8.46.1",
+    "@typescript-eslint/parser": "^8.46.1",
+    "@vitejs/plugin-react": "^5.0.4",
+    "@vitest/ui": "3.2.4",
+    "eslint": "^9.38.0",
+    "eslint-config-next": "^15.5.6",
+    "happy-dom": "^20.0.5",
+    "husky": "^9.1.7",
+    "jsdom": "^27.0.1",
+    "lint-staged": "^16.2.4",
+    "prettier": "^3.6.2",
+    "rimraf": "^6.0.1",
+    "sass-loader": "^16.0.5",
+    "stylelint": "^16.25.0",
+    "stylelint-config-prettier-scss": "^1.0.0",
+    "stylelint-config-standard-scss": "^16.0.0",
+    "typescript": "^5",
+    "vitest": "^3.2.4"
+  }
+}

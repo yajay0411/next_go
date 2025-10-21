@@ -1,0 +1,50 @@
+@import 'normalize.css';
+
+body {
+  font-family: $font-family-base;
+  background-color: $background;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: unset;
+}
+
+@keyframes shimmer-pulse {
+  0% {
+    background-position: -200px 0;
+  }
+
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.shimmer-loading {
+  animation: shimmer-pulse 2s infinite ease-in-out;
+  background: linear-gradient(90deg, #f0f0f0 0, #e0e0e0 40px, #f0f0f0 80px);
+  background-size: 200px 100%;
+}
+
+.shimmer-line {
+  height: 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.shimmer-line:first-child {
+  width: 75%;
+}
+
+.shimmer-line:last-child {
+  width: 50%;
+}
+
+.shimmer-line:not(:first-child, :last-child) {
+  width: 100%;
+}

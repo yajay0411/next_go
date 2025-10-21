@@ -1,0 +1,91 @@
+// ==================================================================
+// GLOBAL LOADER STYLES
+// ==================================================================
+
+.globalLoaderOverlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    min-height: 100vh;
+}
+
+.globalLoader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    padding: 2rem;
+    text-align: center;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.loaderGifContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loaderText {
+    font-size: 22px;
+    font-family: $font-family-base;
+    font-weight: 300;
+    line-height: normal;
+    color: $black-2;
+}
+
+.loaderLogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.8;
+}
+
+// Mobile responsive styles
+@media (max-width: 767px) {
+    .globalLoader {
+        padding: 1.5rem;
+        gap: 24px;
+    }
+
+    .loaderGifContainer img {
+        width: 150px !important;
+        height: 106px !important;
+    }
+
+    .loaderText {
+        font-size: 22px;
+        font-family: $font-family-base;
+        font-weight: 300;
+        line-height: normal;
+        color: $black-2;
+    }
+
+    .loaderLogo img {
+        width: 47px !important;
+        height: 20px !important;
+    }
+}
+
+// Animation for smooth loader appearance
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

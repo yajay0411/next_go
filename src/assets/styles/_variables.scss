@@ -1,0 +1,37 @@
+// Colors
+$background: #ffffff;
+$foreground: #171717;
+$primary-color: #106278;
+$secondary-color: #112125;
+$accent-color: #eee9e5;
+$secondary-green: #A9FCB3;
+$light-blue: #4790a3;
+$gray-shade1: #8C8C8C;
+
+// Error Colors
+$error-color: #dc3545;
+$error-bg: #f8d7da;
+$error-border: #f5c6cb;
+
+// Button Colors
+$button-hover: #2a3a3f;
+$button-disabled-bg: #ccc;
+$button-disabled-text: #999;
+
+// Text Colors
+$placeholder-color: rgba(112, 103, 95, 0.6);
+
+// Display Colors
+$display-bg: rgba(16, 98, 120, 0.1);
+
+// Font
+$font-family-base: var(--font-inria-sans), sans-serif;
+$font-family-accent: var(--font-averia-sans-libre), sans-serif;
+
+// Border radius
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 16px;
+
+// BreakPoints - below is mobile devices than (768px) and above(768px) is desktop devices
+$breakpoint-desktop: 768px;
