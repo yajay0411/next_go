@@ -17,8 +17,7 @@ jobs:
     outputs:
       cache-hit: ${{ steps.cache-deps.outputs.cache-hit }}
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -38,18 +37,15 @@ jobs:
           key: deps-${{ hashFiles('pnpm-lock.yaml') }}
           restore-keys: deps-
 
-      # Restore Playwright browsers cache
       - name: Restore Playwright cache
         uses: actions/cache@v4
         with:
           path: ~/.cache/ms-playwright
           key: playwright-browsers-${{ hashFiles('pnpm-lock.yaml') }}
 
-      # Install dependencies
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # Install Playwright browsers if not cached
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
@@ -60,15 +56,14 @@ jobs:
         run: pnpm run lint:fix
 
   tests:
-    name: 🧪 Unit + E2E Tests
+    name: 🧪 Run Tests
     needs: setup
     runs-on: ubuntu-latest
     strategy:
       matrix:
         test-type: [unit, e2e]
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -99,14 +94,14 @@ jobs:
             pnpm run test:run
           else
             pnpm run test:e2e
+          fi
 
   build:
     name: 🏗️ Build App
     needs: tests
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -139,6 +134,7 @@ jobs:
         with:
           name: build
           path: .next/
+          if-no-files-found: error # <- fails early if build folder is missing
 
   deploy:
     name: 🚀 Deploy to Vercel
@@ -146,8 +142,7 @@ jobs:
     if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Download Build Artifact
         uses: actions/download-artifact@v4
