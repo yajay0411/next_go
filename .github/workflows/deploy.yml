@@ -40,8 +40,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Run Type Check and Lint
-        run: pnpm run type-check && pnpm run lint
+      - name: Run Type Check
+        run: pnpm run type-check
+
+      - name: Run Lint and Format
+        run: pnpm run lint:fix
 
   tests:
     name: 🧪 Unit + E2E Tests
@@ -80,7 +83,7 @@ jobs:
       - name: Run Tests
         run: |
           if [ "${{ matrix.test-type }}" = "unit" ]; then
-            pnpm run test:unit -- --coverage
+            pnpm run test:run
           else
             pnpm run test:e2e
           fi
