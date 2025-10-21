@@ -76,11 +76,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Prepare Playwright (only if e2e)
+      - name: Setup Playwright
         if: matrix.test-type == 'e2e'
-        run: |
-          - name: Setup Playwright
-            uses: microsoft/playwright-github-action@v1
+        uses: microsoft/playwright-github-action@v1
 
       - name: Run Tests
         run: |
