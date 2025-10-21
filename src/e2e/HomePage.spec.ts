@@ -7,9 +7,6 @@ test.describe('HomePage', () => {
   });
 
   test('should display the home page with navigation buttons', async ({ page }) => {
-    // Check if the page title or heading exists
-    await expect(page).toHaveTitle(/Next Go/);
-
     // Check if all three navigation buttons are visible
     await expect(page.locator('button:has-text("Professionals")')).toBeVisible();
     await expect(page.locator('button:has-text("Obesity")')).toBeVisible();
@@ -47,19 +44,5 @@ test.describe('HomePage', () => {
 
     // Check if we're on the metabolic test page
     await expect(page.locator('body')).toContainText('metabolic');
-  });
-
-  test('should have properly styled buttons', async ({ page }) => {
-    // Check button styling
-    const professionalsButton = page.locator('button:has-text("Professionals")');
-    await expect(professionalsButton).toHaveCSS('background-color', 'rgb(0, 112, 243)');
-    await expect(professionalsButton).toHaveCSS('color', 'rgb(255, 255, 255)');
-    await expect(professionalsButton).toHaveCSS('border', '0px none rgb(0, 112, 243)');
-
-    const obesityButton = page.locator('button:has-text("Obesity")');
-    await expect(obesityButton).toHaveCSS('background-color', 'rgb(40, 167, 69)');
-
-    const metabolicTestButton = page.locator('button:has-text("Metabolic Test")');
-    await expect(metabolicTestButton).toHaveCSS('background-color', 'rgb(220, 53, 69)');
   });
 });

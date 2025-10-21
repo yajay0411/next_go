@@ -78,7 +78,7 @@ jobs:
 
       - name: Setup Playwright
         if: matrix.test-type == 'e2e'
-        run: pnpm exec playwright install --with-deps chromium
+        run: echo "Browsers preinstalled, skipping playwright install"
 
       - name: Run Tests
         run: |
