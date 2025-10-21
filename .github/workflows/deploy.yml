@@ -14,6 +14,8 @@ jobs:
   setup:
     name: 🧩 Setup and Validate
     runs-on: ubuntu-latest
+    outputs:
+      cache-key: ${{ steps.cache-deps.outputs.cache-hit }}
     steps:
       - uses: actions/checkout@v4
 
@@ -21,21 +23,27 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: 'pnpm'
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Restore dependencies cache
+        id: cache-deps
+        uses: actions/cache@v4
         with:
-          version: 9
-          run_install: false
+          path: |
+            ~/.pnpm-store
+            node_modules
+          key: deps-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: deps-
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
 
-      - name: Type Check
+      - name: Run Type Check
         run: pnpm run type-check
 
-      - name: Lint & Format
+      - name: Run Lint and Format
         run: pnpm run lint:fix
 
   tests:
@@ -45,8 +53,6 @@ jobs:
     strategy:
       matrix:
         test-type: [unit, e2e]
-    container:
-      image: mcr.microsoft.com/playwright:v1.48.2-jammy
     steps:
       - uses: actions/checkout@v4
 
@@ -54,20 +60,25 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: 'pnpm'
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Restore dependencies cache
+        uses: actions/cache@v4
         with:
-          version: 9
-          run_install: false
+          path: |
+            ~/.pnpm-store
+            node_modules
+          key: deps-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: deps-
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
 
-      - name: Setup Playwright Browsers
+      - name: Prepare Playwright (only if e2e)
         if: matrix.test-type == 'e2e'
-        run: pnpm exec playwright install --with-deps
+        run: npx playwright install --with-deps
 
       - name: Run Tests
         run: |
@@ -88,16 +99,21 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: 'pnpm'
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Restore dependencies cache
+        uses: actions/cache@v4
         with:
-          version: 9
-          run_install: false
+          path: |
+            ~/.pnpm-store
+            node_modules
+          key: deps-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: deps-
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
 
       - name: Build Production
         run: pnpm run build:production
