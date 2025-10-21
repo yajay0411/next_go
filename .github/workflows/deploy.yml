@@ -12,12 +12,13 @@ env:
 
 jobs:
   setup:
-    name: 🧩 Setup and Validate
+    name: 🧩 Setup, Validate & Cache
     runs-on: ubuntu-latest
     outputs:
-      cache-key: ${{ steps.cache-deps.outputs.cache-hit }}
+      cache-hit: ${{ steps.cache-deps.outputs.cache-hit }}
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -27,7 +28,7 @@ jobs:
       - name: Install pnpm
         run: npm install -g pnpm
 
-      - name: Restore dependencies cache
+      - name: Restore pnpm cache
         id: cache-deps
         uses: actions/cache@v4
         with:
@@ -37,8 +38,20 @@ jobs:
           key: deps-${{ hashFiles('pnpm-lock.yaml') }}
           restore-keys: deps-
 
+      # Restore Playwright browsers cache
+      - name: Restore Playwright cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-browsers-${{ hashFiles('pnpm-lock.yaml') }}
+
+      # Install dependencies
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+
+      # Install Playwright browsers if not cached
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
 
       - name: Run Type Check
         run: pnpm run type-check
@@ -54,7 +67,8 @@ jobs:
       matrix:
         test-type: [unit, e2e]
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -64,7 +78,7 @@ jobs:
       - name: Install pnpm
         run: npm install -g pnpm
 
-      - name: Restore dependencies cache
+      - name: Restore pnpm cache
         uses: actions/cache@v4
         with:
           path: |
@@ -73,12 +87,11 @@ jobs:
           key: deps-${{ hashFiles('pnpm-lock.yaml') }}
           restore-keys: deps-
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Prepare Playwright (only if e2e)
-        if: matrix.test-type == 'e2e'
-        run: npx playwright install --with-deps
+      - name: Restore Playwright cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-browsers-${{ hashFiles('pnpm-lock.yaml') }}
 
       - name: Run Tests
         run: |
@@ -86,14 +99,14 @@ jobs:
             pnpm run test:run
           else
             pnpm run test:e2e
-          fi
 
   build:
     name: 🏗️ Build App
     needs: tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -103,7 +116,7 @@ jobs:
       - name: Install pnpm
         run: npm install -g pnpm
 
-      - name: Restore dependencies cache
+      - name: Restore pnpm cache
         uses: actions/cache@v4
         with:
           path: |
@@ -118,6 +131,9 @@ jobs:
       - name: Build Production
         run: pnpm run build
 
+      - name: Verify build folder
+        run: ls -la .next
+
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
         with:
@@ -130,12 +146,17 @@ jobs:
     if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - uses: actions/download-artifact@v4
+      - name: Download Build Artifact
+        uses: actions/download-artifact@v4
         with:
           name: build
-          run: ls -la .next
+          path: .next
+
+      - name: List build contents
+        run: ls -la .next
 
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v25
