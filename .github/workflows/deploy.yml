@@ -121,9 +121,13 @@ jobs:
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: build
-          path: .next/
-          if-no-files-found: error # <- fails early if build folder is missing
+          name: next-build
+          path: |
+            .next/**
+            package.json
+            next.config.* 
+            public/**
+          if-no-files-found: error
 
   deploy:
     name: 🚀 Deploy to Vercel
@@ -133,10 +137,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: List downloaded contents
+        run: ls -R .next
+
       - name: Download Build Artifact
         uses: actions/download-artifact@v4
         with:
-          name: build
+          name: next-build
           path: .next
 
       - name: List build contents
