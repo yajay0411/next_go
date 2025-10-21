@@ -37,17 +37,8 @@ jobs:
           key: deps-${{ hashFiles('pnpm-lock.yaml') }}
           restore-keys: deps-
 
-      - name: Restore Playwright cache
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/ms-playwright
-          key: playwright-browsers-${{ hashFiles('pnpm-lock.yaml') }}
-
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-
-      - name: Install Playwright browsers
-        run: npx playwright install --with-deps
 
       - name: Run Type Check
         run: pnpm run type-check
@@ -82,11 +73,9 @@ jobs:
           key: deps-${{ hashFiles('pnpm-lock.yaml') }}
           restore-keys: deps-
 
-      - name: Restore Playwright cache
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/ms-playwright
-          key: playwright-browsers-${{ hashFiles('pnpm-lock.yaml') }}
+      - name: Install Playwright browsers
+        if: matrix.test-type == 'e2e'
+        run: npx playwright install --with-deps
 
       - name: Run Tests
         run: |
