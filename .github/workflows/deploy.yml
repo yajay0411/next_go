@@ -23,16 +23,19 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'pnpm'
 
-      - name: Install pnpm
-        run: npm install -g pnpm
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: false
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Run Type Check
+      - name: Type Check
         run: pnpm run type-check
 
-      - name: Run Lint and Format
+      - name: Lint & Format
         run: pnpm run lint:fix
 
   tests:
@@ -43,7 +46,7 @@ jobs:
       matrix:
         test-type: [unit, e2e]
     container:
-      image: mcr.microsoft.com/playwright:v1.48.2-jammy # ✅ Use container for both tests
+      image: mcr.microsoft.com/playwright:v1.48.2-jammy
     steps:
       - uses: actions/checkout@v4
 
@@ -53,8 +56,11 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'pnpm'
 
-      - name: Install pnpm
-        run: npm install -g pnpm
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: false
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -84,8 +90,11 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'pnpm'
 
-      - name: Install pnpm
-        run: npm install -g pnpm
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: false
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
