@@ -9,6 +9,8 @@ on:
 
 env:
   NODE_VERSION: 22.18.0
+  DOTENV_PRIVATE_KEY_DEVELOPMENT: ${{ secrets.DOTENV_PRIVATE_KEY_DEVELOPMENT }}
+  DOTENV_PRIVATE_KEY_PRODUCTION: ${{ secrets.DOTENV_PRIVATE_KEY_PRODUCTION }}
 
 jobs:
   setup:
@@ -113,7 +115,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build Production
-        run: pnpm run build:ci
+        run: pnpm run build
 
       - name: Verify build folder
         run: ls -la .next
