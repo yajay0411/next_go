@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "npx dotenvx run --env-file .env.development -- next",
-    "build": "npx dotenvx run --env-file .env.production -- next build",
+    "build": "npx dotenvx run --env-file .env.development -- next build",
     "preview": "pnpm run build && next start --port 10000",
     "lint": "pnpm lint:ts && pnpm lint:scss",
     "lint:fix": "pnpm lint:ts:fix && pnpm lint:scss:fix",
