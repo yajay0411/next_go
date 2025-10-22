@@ -39,7 +39,7 @@
 
   .legal-content-content {
     background: $background;
-    padding: 16px 16px 28px 16px;
+    padding: 16px 16px 28px;
     border-radius: 0;
     box-shadow: none;
 
@@ -63,7 +63,7 @@
         font-style: normal;
         font-weight: 700;
         line-height: normal;
-        margin: 0 0 4px 0;
+        margin: 0 0 4px;
         text-wrap: nowrap;
       }
 
@@ -76,7 +76,7 @@
         font-style: normal;
         font-weight: 400;
         line-height: normal;
-        margin: 0 0 16px 0;
+        margin: 0 0 16px;
       }
     }
 
@@ -93,7 +93,7 @@
       font-style: normal;
       font-weight: 400;
       line-height: normal;
-      margin: 0 0 4px 0;
+      margin: 0 0 4px;
 
       &:last-child {
         margin-bottom: 0;
@@ -122,7 +122,7 @@
       font-style: normal;
       font-weight: 400;
       line-height: normal;
-      margin: 0 0 12px 0;
+      margin: 0 0 12px;
       padding-left: 12px;
       position: relative;
 
@@ -145,7 +145,7 @@
     .legal-content__list {
       list-style: none;
       padding: 0;
-      margin: 0 0 16px 0;
+      margin: 0 0 16px;
       width: 100%;
 
       &:last-child {
@@ -182,16 +182,34 @@
 
 @include responsive(mobile) {
   .legal-wrapper {
-    padding: 0px 16px;
+    padding: 0 16px;
 
     .legal-content-go-back {
       margin-bottom: unset;
-      padding: 16px 0px;
+      padding: 16px 0;
+
+      .back-arrow {
+        color: $secondary-color;
+        font-size: $font-size-base;
+        font-weight: 700;
+      }
+
+      color: $secondary-color;
+      font-family: $font-family-base;
+      font-size: $font-size-base;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+      }
     }
 
     .legal-content-header {
       margin-bottom: unset;
-      padding: 10px 0px;
+      padding: 10px 0; // Fixed: removed px unit from 0
 
       h1.legal-content-title {
         font-size: $font-size-xl;
@@ -200,7 +218,7 @@
 
     .legal-content-content {
       background: transparent;
-      padding: 16px 0px;
+      padding: 16px 0; // Fixed: removed px unit from 0
       border-radius: 0;
       box-shadow: none;
 

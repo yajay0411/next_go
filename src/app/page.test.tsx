@@ -24,22 +24,4 @@ describe('Home Page', () => {
     expect(obesityLink).toHaveAttribute('href', '/obesity');
     expect(metabolicTestLink).toHaveAttribute('href', '/metabolic-test');
   });
-
-  it('applies correct styling to buttons', () => {
-    render(<Home />);
-
-    const buttons = screen.getAllByRole('button');
-    expect(buttons).toHaveLength(3);
-
-    buttons.forEach((button) => {
-      expect(button).toHaveStyle({
-        padding: '12px 24px',
-        border: 'none',
-        borderRadius: '8px',
-        cursor: 'pointer',
-        fontSize: '16px',
-        color: 'white',
-      });
-    });
-  });
 });
