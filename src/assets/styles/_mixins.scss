@@ -1,19 +1,52 @@
-$desktop: 768px;
+/*
+  @mixin flex($direction, $justify, $align, $gap, $wrap)
 
-// Mixin for flexbox centering
-@mixin flex($direction: row, $justify-content: center, $align-items: center, $gap: 0) {
+  Usage:
+  .centered {
+    @include flex(row, center, center, 8px);
+  }
+  .spaced {
+    @include flex(row, space-between, center, 16px);
+  }
+  .vertical {
+    @include flex(column, flex-start, stretch, 12px);
+  }
+*/
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $gap: 0, $wrap: nowrap) {
   display: flex;
   flex-direction: $direction;
-  justify-content: $justify-content;
-  align-items: $align-items;
+  justify-content: $justify;
+  align-items: $align;
   gap: $gap;
+  flex-wrap: $wrap;
 }
 
-// Mixin for responsive font size
-@mixin responsive-font($mobileSize, $desktopSize) {
-  font-size: $mobileSize;
 
-  @media (min-width: $desktop) {
-    font-size: $desktopSize;
+/*
+  @mixin responsive($breakpoint)
+  Applies styles only at specific breakpoints.
+
+  Usage:
+  @include responsive(tablet) {
+    font-size: 18px;
+  }
+*/
+@mixin responsive($breakpoint) {
+  @if $breakpoint ==mobile {
+    @media (max-width: 767px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint ==tablet {
+    @media (min-width: 768px) and (max-width: 1023px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint ==desktop {
+    @media (min-width: 1024px) {
+      @content;
+    }
   }
 }

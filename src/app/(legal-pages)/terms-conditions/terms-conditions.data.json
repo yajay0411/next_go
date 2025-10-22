@@ -1,0 +1,203 @@
+{
+  "title": "Terms and Conditions",
+  "sections": [
+    {
+      "id": "introduction",
+      "content": "Welcome to MetaGo (\"MetaGo,\" \"we,\" \"us,\" or \"our\"), an entity of Ketto Online Ventures Private Limited. These Terms of Use (\"Terms\") govern your access to and use of our website, mobile applications, clinical programs, and all related products and services (collectively, the \"Services\"). <br/>By using MetaGo, you acknowledge that you have read, understood, and agreed to these Terms, as well as our Privacy Policy. If you do not agree with these Terms, do not access or use the Services."
+    },
+    {
+      "id": "eligibility",
+      "title": "Eligibility",
+      "subtitle": "You may use MetaGo only if:",
+      "content": [
+        [
+          "You are at least <strong>18 years old</strong>.",
+          "You are legally competent to enter into binding contracts.",
+          "You reside in a region where our Services are available.",
+          "The information you provide to us is accurate and complete."
+        ]
+      ]
+    },
+    {
+      "id": "medical-disclaimer",
+      "title": "Medical Disclaimer",
+      "subtitle": "MetaGo provides access to licensed doctors, GLP-1-based weight loss medications, diagnostics, and health coaching. However:",
+      "content": [
+        [
+          "<strong>MetaGo does not replace your primary care provider or emergency medical services.</strong>",
+          "Our Services are <strong>not for emergency, urgent, or crisis care</strong>. In such cases, please contact your local emergency services immediately.",
+          "Prescription decisions are made <strong>solely by our licensed medical professionals</strong>, based on their independent clinical judgment and your medical history."
+        ]
+      ]
+    },
+    {
+      "id": "account-responsibilities",
+      "title": "Account Responsibilities",
+      "subtitle": "When you create an MetaGo account, you agree to:",
+      "content": [
+        [
+          "Provide complete and truthful information;",
+          "Maintain the confidentiality of your login credentials.",
+          "Notify us immediately of any unauthorized use of your account.",
+          "Use the platform only for personal, non-commercial purposes."
+        ],
+        "We reserve the right to suspend or terminate your account if you provide false information, misuse the platform, or violate these Terms."
+      ]
+    },
+    {
+      "id": "clinical-kits-equipment",
+      "title": "Clinical Kits & Equipment",
+      "subtitle": "If your plan includes onboarding materials (e.g., blood test kits, health tracking devices):",
+      "content": [
+        [
+          "These may be fulfilled by <strong>third-party providers</strong>, and MetaGo is <strong>not liable</strong> for technical issues, delays, or product defects.",
+          "Such items are for your <strong>personal use only</strong> and must not be resold, transferred, or misused.",
+          "Upon program termination, we may request that devices be returned or deactivated.",
+          "Failure to complete onboarding (e.g., blood testing) within the stipulated time may result in delayed care or non-eligibility for prescription therapy."
+        ]
+      ]
+    },
+    {
+      "id": "program-payments",
+      "title": "Program Payments, Subscription, and Refund Policy",
+      "subtitle": "Access to most MetaGo programs requires payment.",
+      "content": [
+        "<strong>a. Billing</strong>",
+        [
+          "You agree to pay all applicable fees as presented at checkout.",
+          "Fees may be one-time or subscription-based, depending on the plan.",
+          "MetaGo uses Razorpay for secure transactions."
+        ],
+        "<strong>b. Cancellation & Refunds</strong>",
+        [
+          "No cancellations allowed for the first three months of the program. In case you do not see notable results in weight reduction, you may be eligible for a prorated refund after this period at MetaGo's discretion.",
+          "If you experience significant adverse effects due to medication and discontinue on medical grounds, you may be eligible for a refund at MetaGo's discretion.",
+          "Once medications are shipped or administered, no refunds are allowed for those items.",
+          "Refunds do not apply to third-party services (e.g., diagnostic labs, courier costs)."
+        ],
+        "All requests must be made in writing via <strong><a href='mailto:info@metago.health' style='text-decoration: underline;'>info@metago.health</a></strong>"
+      ]
+    },
+    {
+      "id": "use-service",
+      "title": "Use of Services & User Conduct",
+      "subtitle": "By using MetaGo, you agree not to:",
+      "content": [
+        [
+          "Interfere with the functioning of our platform.",
+          "Impersonate another person or share false information.",
+          "Upload or transmit any harmful content (e.g., viruses, malware).",
+          "Reproduce, distribute, or commercialize MetaGo's intellectual property.",
+          "Use MetaGo Services in any unlawful or unauthorized manner."
+        ],
+        "We reserve the right to investigate and take legal action for violations."
+      ]
+    },
+    {
+      "id": "third-party-services",
+      "title": "Third-Party Services",
+      "subtitle": "We may integrate with third-party labs, courier services, diagnostic platforms, and pharmacies. MetaGo is not responsible for:",
+      "content": [
+        [
+          "The content or accuracy of external websites.",
+          "Service disruptions caused by third-party providers.",
+          "Actions taken by vendors beyond our control."
+        ],
+        "Users are subject to the third party’s own terms and privacy policies."
+      ]
+    },
+    {
+      "id": "fullfillment-limitation",
+      "title": "Prescription Fulfillment & Limitations",
+      "subtitle": "All prescriptions are:",
+      "content": [
+        [
+          "Issued <strong>only after review of your medical history and lab reports.</strong>",
+          "Dispensed by our licensed pharmacy partners.",
+          "Non-transferable and for your personal use only.",
+          "Subject to change, dosage adjustment, or discontinuation at the provider’s discretion."
+        ]
+      ]
+    },
+    {
+      "id": "privacy-data-security",
+      "title": "Privacy & Data Security",
+      "subtitle": "Please refer to our Privacy Policy for full details. In brief:",
+      "content": [
+        [
+          "We collect and store personal and health data securely.",
+          "We do not sell your data.",
+          "We retain your data for at least <strong>3 years</strong> or as required by law.",
+          "You may request data deletion or correction at any time."
+        ]
+      ]
+    },
+    {
+      "id": "intellectual-property",
+      "title": "Intellectual Property",
+      "subtitle": "All content on MetaGo - text, design, graphics, software, programs, and branding - is owned by or licensed to Ketto Online Ventures Pvt Ltd. You may not:",
+      "content": [
+        [
+          "Copy, distribute, modify, or use this content without permission.",
+          "Claim ownership of any MetaGo materials or content.",
+          "Create derivative works or mimic our Services for commercial use."
+        ]
+      ]
+    },
+    {
+      "id": "limitation-liability",
+      "title": "Limitation of Liability",
+      "subtitle":"To the fullest extent permitted by law:",
+      "content": [
+        [
+          "MetaGo disclaims all warranties, express or implied.",
+          "We do not guarantee specific weight loss or health outcomes.",
+          "MetaGo is not liable for indirect, incidental, or consequential damages related to the use of our Services.",
+          "Users assume responsibility for any decisions made based on information from MetaGo."
+        ]
+      ]
+    },
+    {
+      "id": "indemnification",
+      "title": "Indemnification",
+      "subtitle": "You agree to indemnify and hold MetaGo , its affiliates, employees, directors, and partners harmless from any claims, losses, damages, or legal fees arising from:",
+      "content": [
+        [
+          "Your use or misuse of the Services.",
+          "Your violation of these Terms.",
+          "Any breach of laws or rights of third parties."
+        ]
+      ]
+    },
+    {
+      "id": "termination-of-use",
+      "title": "Termination of Use",
+      "subtitle":"We reserve the right to suspend or terminate your access if:",
+      "content": [
+        [
+          "You breach these Terms.",
+          "You provide false or incomplete information.",
+          "Your behavior threatens the integrity or reputation of MetaGo."
+        ],
+        "Termination may result in forfeiture of access and no eligibility for refunds."
+      ]
+    },
+    {
+      "id": "modifications-terms",
+      "title": "Modifications to Terms",
+      "content": "We may revise these Terms periodically. Changes will be posted on our website or app. Your continued use of the Services constitutes acceptance of the updated Terms."
+    },
+    {
+      "id": "contact-us",
+      "title": "Contact Us",
+      "content": [
+        "For questions, concerns, or legal notices, contact:",
+        "<strong>Ketto Online Ventures Pvt Ltd.</strong>",
+        "Email: <a href='mailto:info@metago.health' style='text-decoration: underline;'>info@metago.health</a>",
+        "Address: 14th floor, Suvidha Square junction of SV road, and, Ceasar Rd, Andheri West, Mumbai, Maharashtra 400058",
+        "By choosing to accept these Terms of Use, you voluntarily and unequivocally provide your informed consent to <strong>MetaGo's Privacy Policy</strong>, the <strong>MetaGo Mobile Application Terms of Use</strong>, and to receiving commercial communications from MetaGo.",
+        "You further consent, on an informed and voluntary basis, to the transfer of your personal data to third parties, as outlined in the <strong>MetaGo Privacy Policy</strong>."
+      ]
+    }
+  ]
+}

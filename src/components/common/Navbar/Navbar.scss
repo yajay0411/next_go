@@ -1,0 +1,222 @@
+.navbar-wrapper {
+  background-color: rgb(255 255 255 / 90%);
+  box-shadow: 0 3px 12px rgb(0 0 0 / 8%);
+  padding: $spacing-sm $spacing-md;
+  z-index: $navbar-z-index;
+  position: relative;
+  height: $navbar-height;
+  @include flex(row, center, center);
+
+  .navbar-mwc {
+    width: 100%;
+    max-width: var(--navbar-mwc-max-width, 1200px);
+    @include flex(row, space-between, center);
+  }
+}
+
+// Desktop Layout
+.navbar-desktop {
+  @include flex(row, space-between, center);
+
+  width: 100%;
+
+  @include responsive(mobile) {
+    display: none;
+  }
+}
+
+// Mobile Layout
+.navbar-mobile {
+  display: none;
+
+  @include responsive(mobile) {
+    @include flex(row, space-between, center);
+
+    width: 100%;
+  }
+
+  .navbar-mobile-right {
+    @include flex(row, center, center, $spacing-md);
+  }
+}
+
+// Logo Styles
+.navbar-logo {
+  a {
+    @include flex(row, center, center, $spacing-sm);
+
+    text-decoration: none;
+
+    img {
+      display: block;
+    }
+  }
+
+  .navbar-logo-text {
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    font-weight: 700;
+    line-height: normal;
+    text-wrap: nowrap;
+    color: $primary-color;
+  }
+}
+
+// Navigation Links
+.navbar-links {
+  @include flex(row, center, center, $spacing-xl);
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-link-item {
+  list-style: none;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: $secondary-color;
+  font-family: $font-family-base;
+  font-size: $font-size-sm;
+  font-weight: 300;
+  line-height: normal;
+  text-wrap: nowrap;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+// Auth Buttons Container
+.navbar-auth {
+  @include flex(row, center, center, $spacing-md);
+}
+
+// Sign In Button
+.navbar-sign-in {
+  text-decoration: none;
+  color: $primary-color;
+  font-family: $font-family-base;
+  font-size: $font-size-sm;
+  font-weight: 700;
+  line-height: normal;
+  text-wrap: nowrap;
+  padding: $spacing-md $spacing-xl;
+  border: 1px solid $primary-color;
+  border-radius: $border-radius-full;
+  background-color: transparent;
+  transition: all $transition-fast;
+
+  &:hover {
+    background-color: $primary-color;
+    color: $accent-color;
+  }
+}
+
+// Get Started Button
+.navbar-get-started {
+  text-decoration: none;
+  color: $accent-color;
+  font-family: $font-family-base;
+  font-size: $font-size-sm;
+  font-weight: 700;
+  line-height: normal;
+  text-wrap: nowrap;
+  padding: $spacing-md $spacing-xl;
+  background-color: $secondary-color;
+  border-radius: $border-radius-full;
+  transition: all $transition-fast;
+
+  &:hover {
+    background-color: darken($secondary-color, 10%);
+  }
+}
+
+// Mobile Menu Button
+.navbar-mobile-menu-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: $spacing-sm;
+  @include flex(row, center, center);
+}
+
+.navbar-mobile-menu-icon {
+  @include flex(column, center, center, 3px);
+
+  width: 24px;
+  height: 18px;
+
+  span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: $secondary-color;
+    transition: all $transition-base;
+    transform-origin: center;
+  }
+
+  &.active {
+    span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    span:nth-child(2) {
+      opacity: 0;
+    }
+
+    span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+  }
+}
+
+// Mobile Menu Overlay
+.navbar-mobile-menu {
+  position: fixed;
+  inset: 0;
+  background-color: rgb(255 255 255 / $mobile-menu-bg-opacity);
+  backdrop-filter: blur(10px);
+  z-index: $mobile-menu-z-index;
+  @include flex(row, center, center);
+
+  opacity: 0;
+  visibility: hidden;
+  transition: all $transition-base;
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .navbar-mobile-menu-content {
+    @include flex(column, center, center, $spacing-xl);
+
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .navbar-mobile-menu-auth {
+    @include flex(column, center, center, $spacing-md);
+  }
+}
+
+// Responsive Design
+@include responsive(mobile) {
+  .navbar-wrapper {
+    padding: $spacing-base $spacing-md;
+  }
+
+  .navbar-mobile-menu {
+    .navbar-links {
+      @include flex(column, center, center, $spacing-lg);
+    }
+
+    .navbar-link {
+      font-size: $font-size-lg;
+    }
+  }
+}

@@ -6,7 +6,7 @@ import MaxWidthContainerLayout from '@/core/Layouts/MaxWidthContainerLayout/MaxW
 
 import logo from '@/assets/images/logo.svg';
 
-import styles from './Navbar.module.scss';
+import './Navbar.scss';
 
 // Configuration interface for Navbar
 export type NavbarConfig = {
@@ -99,20 +99,20 @@ const Navbar: React.FC<NavbarProps> = ({ config = {}, className = '' }) => {
     if (!navbarConfig.showNavLinks || !navbarConfig.navLinks) return null;
 
     return (
-      <ul className={`${styles['navbar-links']}`}>
+      <ul className="navbar-links">
         {navbarConfig.navLinks.map((link, index) => (
-          <li key={index} className={`${styles['navbar-link-item']}`}>
+          <li key={index} className="navbar-link-item">
             {link.external ? (
               <a
                 href={link.href}
                 target={link.target || '_blank'}
                 rel="noopener noreferrer"
-                className={`${styles['navbar-link']}`}
+                className="navbar-link"
               >
                 {link.label}
               </a>
             ) : (
-              <Link href={link.href} className={`${styles['navbar-link']}`}>
+              <Link href={link.href} className="navbar-link">
                 {link.label}
               </Link>
             )}
@@ -126,7 +126,7 @@ const Navbar: React.FC<NavbarProps> = ({ config = {}, className = '' }) => {
     if (!navbarConfig.showLogo || !navbarConfig.logo) return null;
 
     return (
-      <div className={`${styles['navbar-logo']}`}>
+      <div className="navbar-logo">
         <Link href="/">
           <Image
             src={navbarConfig.logo.src}
@@ -135,6 +135,7 @@ const Navbar: React.FC<NavbarProps> = ({ config = {}, className = '' }) => {
             {...(navbarConfig.logo.height && { height: navbarConfig.logo.height })}
             priority
           />
+          <span className="navbar-logo-text">{navbarConfig.logo.alt}</span>
         </Link>
       </div>
     );
@@ -142,15 +143,15 @@ const Navbar: React.FC<NavbarProps> = ({ config = {}, className = '' }) => {
 
   const renderAuthButtons = () => {
     return (
-      <div className={`${styles['navbar-auth']}`}>
+      <div className="navbar-auth">
         {navbarConfig.showSignIn && navbarConfig.signIn && (
-          <Link href={navbarConfig.signIn.href} className={`${styles['navbar-sign-in']}`}>
+          <Link href={navbarConfig.signIn.href} className="navbar-sign-in">
             {navbarConfig.signIn.label}
           </Link>
         )}
 
         {navbarConfig.showGetStarted && navbarConfig.getStarted && (
-          <Link href={navbarConfig.getStarted.href} className={`${styles['navbar-get-started']}`}>
+          <Link href={navbarConfig.getStarted.href} className="navbar-get-started">
             {navbarConfig.getStarted.label}
           </Link>
         )}
@@ -163,13 +164,11 @@ const Navbar: React.FC<NavbarProps> = ({ config = {}, className = '' }) => {
 
     return (
       <button
-        className={`${styles['navbar-mobile-menu-button']}`}
+        className="navbar-mobile-menu-button"
         onClick={toggleMobileMenu}
         aria-label="Toggle mobile menu"
       >
-        <span
-          className={`${styles['navbar-mobile-menu-icon']} ${isMobileMenuOpen ? styles.active : ''}`}
-        >
+        <span className={`navbar-mobile-menu-icon ${isMobileMenuOpen ? 'active' : ''}`}>
           <span></span>
           <span></span>
           <span></span>
@@ -179,27 +178,27 @@ const Navbar: React.FC<NavbarProps> = ({ config = {}, className = '' }) => {
   };
 
   return (
-    <nav className={`${styles['navbar-wrapper']} ${className}`}>
-      <MaxWidthContainerLayout className={`${styles['navbar-mwc']}`}>
+    <nav className={`navbar-wrapper ${className}`}>
+      <MaxWidthContainerLayout className="navbar-mwc">
         {/* Desktop Layout */}
-        <div className={`${styles['navbar-desktop']}`}>
+        <div className="navbar-desktop">
           {renderLogo()}
           {renderNavLinks()}
           {renderAuthButtons()}
         </div>
 
         {/* Mobile Layout */}
-        <div className={`${styles['navbar-mobile']}`}>
+        <div className="navbar-mobile">
           {renderLogo()}
-          <div className={`${styles['navbar-mobile-right']}`}>{renderMobileMenuButton()}</div>
+          <div className="navbar-mobile-right">{renderMobileMenuButton()}</div>
         </div>
 
         {/* Mobile Menu Overlay */}
         {navbarConfig.showMobileMenu && (
-          <div className={`${styles['navbar-mobile-menu']} ${isMobileMenuOpen ? styles.open : ''}`}>
-            <div className={`${styles['navbar-mobile-menu-content']}`}>
+          <div className={`navbar-mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
+            <div className="navbar-mobile-menu-content">
               {renderNavLinks()}
-              <div className={`${styles['navbar-mobile-menu-auth']}`}>{renderAuthButtons()}</div>
+              <div className="navbar-mobile-menu-auth">{renderAuthButtons()}</div>
             </div>
           </div>
         )}

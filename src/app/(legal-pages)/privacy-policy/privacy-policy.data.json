@@ -1,0 +1,164 @@
+{
+  "title": "Privacy Policy",
+  "sections": [
+    {
+      "id": "introduction",
+      "content": "At MetaGo (\"MetaGo,\" \"we,\" \"us,\" or \"our\"), an entity of Ketto Online Ventures Private Limited, your privacy is our top priority. This Privacy Policy explains how we collect, use, store, disclose, and protect your personal and health-related information when you interact with our website, mobile applications, clinical programs, and related services (collectively, the \"Services\"). <br/>By accessing or using our Services, you acknowledge that you have read, understood, and agreed to this Privacy Policy. If you do not agree with its terms, please do not access or use MetaGo."
+    },
+    {
+      "id": "information-we-collect",
+      "title": "Information We Collect",
+      "subtitle": "We collect the following types of data:",
+      "content": [
+        "<strong>a. Personal Identifiable Information (PII)</strong>",
+        [
+          "Full name",
+          "Date of birth, age, gender",
+          "Phone number, email address, residential address",
+          "Government-issued IDs (for verification, if required)"
+        ],
+        "<strong>b. Health Information</strong>",
+        [
+          "Medical history, allergies, current conditions",
+          "Prescription medications, treatment history",
+          "Lab results, diagnostic data, weight, vitals",
+          "Responses to health questionnaires and symptom checkers"
+        ],
+        "<strong>c. Payment and Transaction Data</strong>",
+        [
+          "Billing address",
+          "Payment method (collected and processed by secure third-party payment gateways; we do not store card details directly)"
+        ],
+        "<strong>d. Device & Technical Information</strong>",
+        [
+          "IP address",
+          "Browser and operating system type",
+          "Device identifiers",
+          "Access times and pages visited"
+        ],
+        "<strong>e. Communication & Support Interactions</strong>",
+        [
+          "Emails, chats, feedback forms, and phone call logs with our support team"
+        ]
+      ]
+    },
+    {
+      "id": "how-we-use-your-information",
+      "title": "How We Use Your Information",
+      "subtitle": "We use your information to:",
+      "content": [
+        [
+            "Provide personalized medical and coaching services",
+            "Assess eligibility and prescribe appropriate treatment (e.g., GLP‑1 medication)",
+            "Coordinate lab testing, medication delivery, and doctor consults",
+            "Communicate with you about appointments, dosage reminders, program updates",
+            "Improve user experience and enhance service functionality",
+            "Ensure compliance with medical regulations and maintain internal records",
+            "fulfill legal or regulatory obligations, including public health reporting"
+        ]
+      ]
+    },
+    {
+      "id": "legal-basis",
+      "title": "Legal Basis for Processing (if applicable under GDPR)",
+      "subtitle": "Where applicable, our processing is justified under the following bases:",
+      "content": [
+        [
+            "Your consent",
+            "Performance of a contract (program or subscription)",
+            "Legal obligations",
+            "Legitimate business interests (e.g., service improvement)"
+        ]
+      ]
+    },
+    {
+      "id": "share-data",
+      "title": "Who We Share Your Data With",
+      "subtitle": "We never sell your personal data. We only share it in the following circumstances:",
+      "content": [
+        [
+            "<strong>Doctors and licensed healthcare providers</strong>– to deliver care and make informed clinical decisions",
+            "<strong>Diagnostic labs and pharmacies</strong>– to process tests and medication delivery",
+            "<strong>Authorized third-party service providers</strong>– for cloud hosting, technical support, analytics, and communications (under strict confidentiality agreements)",
+            "<strong>Legal authorities or regulators</strong>– if required to comply with applicable laws",
+            "<strong>Your consented parties</strong>– if you request referrals or data sharing"
+        ]
+      ]
+    },
+    {
+      "id": "protect-info",
+      "title": "How We Store and Protect Your Information",
+      "subtitle": "We take privacy and security seriously. Your data is:",
+      "content": [
+        [
+            "Encrypted in transit and at rest using industry-standard protocols",
+            "Stored on secure servers hosted in <strong>India</strong>",
+            "Access-controlled and protected with strong authentication layers",
+            "Regularly audited for security vulnerabilities and compliance",
+            "To exercise these rights, email us at info@metago.health"
+        ],
+        "We retain your health and personal data for a <strong>minimum of 3 years</strong> after your last activity or longer, in accordance with medical record-keeping laws and regulatory requirements."
+      ]
+    },
+    {
+      "id": "your-rights",
+      "title": "Your Rights",
+      "subtitle": "You have the right to:",
+      "content": [
+        [
+            "Access the data we hold about you",
+            "Request corrections or updates to your data",
+            "Request deletion of your account and associated data (except where legally required to retain)",
+            "Withdraw consent for non-essential communications",
+            "File a complaint with a data protection authority (if applicable)"
+        ],
+        "To exercise these rights,",
+        "email us at <strong><a href='mailto:info@metago.health' style='text-decoration: underline;'>info@metago.health</a></strong>"
+      ]
+    },
+    {
+      "id": "cookies",
+      "title": "Use of Cookies and Tracking Technologies",
+      "subtitle": "We use cookies and similar technologies to:",
+      "content": [
+        [
+
+            "Enhance site functionality and personalization",
+            "Understand user behavior and improve services",
+            "Deliver relevant communications and reminders",
+            "You may modify cookie preferences in your browser. Blocking cookies may affect certain features."
+        ]
+      ]
+    },
+    {
+      "id": "childrens-privacy",
+      "title": "Children's Privacy",
+      "content": "MetaGo is intended only for users 18 years and older. We do not knowingly collect data from individuals under 18. If we become aware that a minor has submitted personal data, we will delete it promptly."
+    },
+    {
+      "id": "cross-border-transfers",
+      "title": "Cross-Border Data Transfers",
+      "content": "If you access MetaGo from outside India, your data may be transferred and processed in that jurisdiction. By using our Services, you consent to this transfer and processing in accordance with this policy."
+    },
+    {
+      "id": "third-party-websites",
+      "title": "Third-Party Websites & Services",
+      "content": [
+        "Our website or app may link to external sites. We are not responsible for the privacy practices, terms, or content of third-party services. Please review their policies before engaging.",
+        "<strong>Policy Updates</strong>",
+        "We may update this Privacy Policy from time to time to reflect changes in law, technology, or business practices. The updated version will be posted with the new effective date. If changes are material, we will notify you via email or in-app message."
+      ]
+    },
+    {
+      "id": "contact-us",
+      "title": "Contact Us",
+      "content": [
+        "For questions about your data or this Privacy Policy, please contact:",
+        "<strong>MetaGo</strong>",
+        "<strong>Email: <a href='mailto:info@metago.health' style='text-decoration: underline;'>info@metago.health</a></strong>",
+        "<strong>Address: 14th floor, Suvidha Square junction of SV road, and, Ceasar Rd, Andheri West, Mumbai, Maharashtra 400058</strong>",
+        "<strong>Business Hours: Mon–Sat, 10am–7pm IST</strong>"
+      ]
+    }
+  ]
+}

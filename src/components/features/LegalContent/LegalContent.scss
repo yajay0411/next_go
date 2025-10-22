@@ -1,0 +1,281 @@
+.legal-wrapper {
+  padding: 48px 0;
+
+  .legal-content-go-back {
+    margin-bottom: 24px;
+
+    .back-arrow {
+      color: $secondary-color;
+      font-size: $font-size-base;
+      font-weight: 700;
+    }
+
+    color: $secondary-color;
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .legal-content-header {
+    margin-bottom: 12px;
+
+    h1.legal-content-title {
+      color: $secondary-color;
+      font-family: $font-family-accent;
+      font-size: $font-size-hero;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 140%;
+      margin: 0;
+    }
+  }
+
+  .legal-content-content {
+    background: $background;
+    padding: 16px 16px 28px 16px;
+    border-radius: 0;
+    box-shadow: none;
+
+    // Section styling - proper spacing between sections
+    .legal-content__section {
+      width: 100%;
+
+      &:not(:first-child) {
+        margin-top: 32px;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 32px;
+      }
+
+      // Section titles - matching Figma exactly
+      .legal-content__section-title {
+        color: $secondary-color;
+        font-family: $font-family-base;
+        font-size: $font-size-xxl;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        margin: 0 0 4px 0;
+        text-wrap: nowrap;
+      }
+
+      .legal-content__section-subtitle {
+        overflow: hidden;
+        color: $secondary-color;
+        text-overflow: ellipsis;
+        font-family: $font-family-base;
+        font-size: $font-size-base;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin: 0 0 16px 0;
+      }
+    }
+
+    // Content wrapper for proper text flow
+    .legal-content__content-wrapper {
+      width: 100%;
+    }
+
+    // Regular text paragraphs - improved spacing
+    .legal-content__text {
+      color: $secondary-color;
+      font-family: $font-family-base;
+      font-size: $font-size-base;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      margin: 0 0 4px 0;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    // Lettered items (a., b., c.) - improved styling
+    .legal-content__lettered-item {
+      color: $secondary-color;
+      font-family: $font-family-base;
+      font-size: $font-size-base;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    // Bullet point items - proper indentation and spacing
+    .legal-content__bullet-item {
+      color: $secondary-color;
+      font-family: $font-family-base;
+      font-size: $font-size-base;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      margin: 0 0 12px 0;
+      padding-left: 12px;
+      position: relative;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: $secondary-color;
+        font-size: $font-size-base;
+        line-height: normal;
+      }
+    }
+
+    // Unordered lists - better structure
+    .legal-content__list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 16px 0;
+      width: 100%;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .legal-content__list-item {
+        color: $secondary-color;
+        font-family: $font-family-base;
+        font-size: $font-size-base;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        padding-left: 12px;
+        position: relative;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        &::before {
+          content: "•";
+          position: absolute;
+          left: 0;
+          top: 0;
+          color: $secondary-color;
+          font-size: $font-size-base;
+          line-height: normal;
+        }
+      }
+    }
+  }
+}
+
+@include responsive(mobile) {
+  .legal-wrapper {
+    padding: 0px 16px;
+
+    .legal-content-go-back {
+      margin-bottom: unset;
+      padding: 16px 0px;
+    }
+
+    .legal-content-header {
+      margin-bottom: unset;
+      padding: 10px 0px;
+
+      h1.legal-content-title {
+        font-size: $font-size-xl;
+      }
+    }
+
+    .legal-content-content {
+      background: transparent;
+      padding: 16px 0px;
+      border-radius: 0;
+      box-shadow: none;
+
+      .legal-content__section {
+        width: 100%;
+
+        &:not(:first-child) {
+          margin-top: 16px;
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 16px;
+        }
+
+        .legal-content__section-title {
+          text-wrap: unset;
+          font-size: $font-size-xl;
+        }
+
+        .legal-content__section-subtitle {
+          font-size: $font-size-sm;
+        }
+      }
+
+      .legal-content__content-wrapper {
+        width: 100%;
+      }
+
+      .legal-content__text {
+        font-size: $font-size-sm;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      .legal-content__lettered-item {
+        font-size: $font-size-sm;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      .legal-content__bullet-item {
+        font-size: $font-size-sm;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        &::before {
+          content: "•";
+          font-size: $font-size-sm;
+        }
+      }
+
+      .legal-content__list {
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        .legal-content__list-item {
+          font-size: $font-size-sm;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          &::before {
+            content: "•";
+            font-size: $font-size-sm;
+          }
+        }
+      }
+    }
+  }
+}

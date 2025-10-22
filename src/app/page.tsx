@@ -51,6 +51,38 @@ export default function Home() {
             Metabolic Test
           </button>
         </Link>
+
+        <Link href="/privacy-policy">
+          <button
+            style={{
+              padding: '12px 24px',
+              backgroundColor: 'blue',
+              color: 'white',
+              border: 'none',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              fontSize: '16px',
+            }}
+          >
+            Privacy Policy
+          </button>
+        </Link>
+
+        <Link href="/terms-conditions">
+          <button
+            style={{
+              padding: '12px 24px',
+              backgroundColor: 'orange',
+              color: 'white',
+              border: 'none',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              fontSize: '16px',
+            }}
+          >
+            Terms & Conditions
+          </button>
+        </Link>
       </div>
     </div>
   );

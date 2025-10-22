@@ -1,4 +1,3 @@
-'use client';
 import React from 'react';
 
 import Footer from '@/components/common/Footer/Footer';
@@ -22,9 +21,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({
   return (
     <>
       {showNavbar && <Navbar />}
-      <MaxWidthContainerLayout>
-        <main>{children}</main>
-      </MaxWidthContainerLayout>
+      <main>
+        <MaxWidthContainerLayout>{children}</MaxWidthContainerLayout>
+      </main>
       {showFooter && <Footer />}
     </>
   );
