@@ -1,11 +1,15 @@
+import LandingPage from '@/components/features/LandingPage/LandingPage';
+import MainLayout from '@/core/Layouts/MainLayout/MainLayout';
+
+export const metadata = {
+  title: 'Metabolic Test | Meta Go',
+  description: 'Metabolic Test',
+};
+
 export default function MetabolicTest() {
   return (
-    <div style={{ padding: '2rem', textAlign: 'center' }}>
-      <h1>Metabolic Test</h1>
-      <p>
-        Welcome to the Metabolic Test section. This page will contain information about metabolic
-        testing and assessments.
-      </p>
-    </div>
+    <MainLayout>
+      <LandingPage variant="metabolic-test" />
+    </MainLayout>
   );
 }

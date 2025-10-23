@@ -1,11 +1,15 @@
+import LandingPage from '@/components/features/LandingPage/LandingPage';
+import MainLayout from '@/core/Layouts/MainLayout/MainLayout';
+
+export const metadata = {
+  title: 'Obesity | Meta Go',
+  description: 'Obesity',
+};
+
 export default function Obesity() {
   return (
-    <div style={{ padding: '2rem', textAlign: 'center' }}>
-      <h1>Obesity</h1>
-      <p>
-        Welcome to the Obesity section. This page will contain information about obesity management
-        and treatment.
-      </p>
-    </div>
+    <MainLayout>
+      <LandingPage variant="obesity" />
+    </MainLayout>
   );
 }

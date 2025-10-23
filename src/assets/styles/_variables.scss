@@ -52,7 +52,15 @@ $border-radius-full: 999px;
 // Layout
 $navbar-height: 68px;
 $navbar-z-index: 99;
+$hero-min-height: 100vh;
+$hero-max-width: 1200px;
 $mobile-menu-z-index: 9998;
+
+// Hero Section
+$hero-overlay-bg: rgba(0, 0, 0, 0.3);
+$hero-content-spacing: 2rem;
+$hero-title-spacing: 1.5rem;
+$hero-button-spacing: 1rem;
 
 // Transitions
 $transition-fast: 0.2s ease;

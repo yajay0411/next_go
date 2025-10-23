@@ -1,13 +1,17 @@
+import LandingPage from '@/components/features/LandingPage/LandingPage';
+import MainLayout from '@/core/Layouts/MainLayout/MainLayout';
+
+export const metadata = {
+  title: 'Professionals | Meta Go',
+  description: 'Professionals',
+};
+
 export default function Professionals() {
   return (
     <>
-      <div style={{ padding: '2rem', textAlign: 'center' }}>
-        <h1>Professionals</h1>
-        <p>
-          Welcome to the Professionals section. This page will contain information about healthcare
-          professionals.
-        </p>
-      </div>
+      <MainLayout>
+        <LandingPage variant="professionals" />
+      </MainLayout>
     </>
   );
 }
